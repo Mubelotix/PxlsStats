@@ -9,17 +9,6 @@ $(document).ready(function() {
         }
     }
 
-    function makeNumberRenderer2(key) {
-        return (data, type, row) => {
-            const val = row[key];
-            console.log(val);
-            if (type !== 'display') {
-                return val;
-            }
-            return val.toLocaleString();
-        }
-    }
-
     $.get("stats.json", statsData => {
         try {
             if (typeof statsData === "string") {
@@ -53,6 +42,19 @@ $(document).ready(function() {
 
     function handleTables(data) {
         console.log(data);
+        data["factions"].forEach((faction, index) => {
+            switch (faction["Faction"]) {
+                case "LH": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.6; break;
+                case "MRIE": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.33; break;
+                case "GM": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.17; break;
+                case "ITI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1; break;
+                case "CFI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.97; break;
+                case "MECA": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.75; break;
+                case "EP": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.71; break;
+            }
+        });
+        console.log(data);
+
         var leaderboardColumns = [
             {data: "place", searchable: false},
             {
@@ -130,13 +132,13 @@ $(document).ready(function() {
                     render: makeNumberRenderer('Canvas_Pixels')
                 },
                 {
-                    render: makeNumberRenderer2('Alltime_Pixels')
+                    render: makeNumberRenderer('Alltime_Pixels')
                 },
                 {
                     render: makeNumberRenderer('Member_Count')
                 }
             ],
-            order: [[3, 'desc']]
+            order: [[2, 'desc']]
         });
 
         $(".card-title").addClass("pull-down").css("z-index", "9669");
