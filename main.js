@@ -9,6 +9,17 @@ $(document).ready(function() {
         }
     }
 
+    function makeNumberRenderer2(key) {
+        return (data, type, row) => {
+            const val = row[key];
+            console.log(val);
+            if (type !== 'display') {
+                return val;
+            }
+            return val.toLocaleString();
+        }
+    }
+
     $.get("stats.json", statsData => {
         try {
             if (typeof statsData === "string") {
@@ -119,7 +130,7 @@ $(document).ready(function() {
                     render: makeNumberRenderer('Canvas_Pixels')
                 },
                 {
-                    render: makeNumberRenderer('Alltime_Pixels')
+                    render: makeNumberRenderer2('Alltime_Pixels')
                 },
                 {
                     render: makeNumberRenderer('Member_Count')
