@@ -44,13 +44,13 @@ $(document).ready(function() {
         console.log(data);
         data["factions"].forEach((faction, index) => {
             switch (faction["Faction"]) {
-                case "LH": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.6; break;
-                case "MRIE": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.33; break;
-                case "GM": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.17; break;
-                case "ITI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1; break;
-                case "CFI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.97; break;
-                case "MECA": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.75; break;
-                case "EP": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 0.71; break;
+                case "LH": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.8; break;
+                case "MRIE": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.73; break;
+                case "GM": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.23; break;
+                case "ITI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.21; break;
+                case "CFI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.21; break;
+                case "MECA": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.03; break;
+                case "EP": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.0; break;
             }
         });
         console.log(data);
