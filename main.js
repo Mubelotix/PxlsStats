@@ -44,8 +44,8 @@ $(document).ready(function() {
         console.log(data);
         data["factions"].forEach((faction, index) => {
             switch (faction["Faction"]) {
-                case "LH": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.8; break;
                 case "MRIE": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.73; break;
+                case "LH": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.54; break;
                 case "GM": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.23; break;
                 case "ITI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.21; break;
                 case "CFI": faction["Alltime_Pixels"] = faction["Canvas_Pixels"] * 1.21; break;
